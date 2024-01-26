@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/require-default-props
 function Card(props) {
+  // eslint-disable-next-line react/prop-types
   const { title, children } = props;
   return (
     <article className="card">

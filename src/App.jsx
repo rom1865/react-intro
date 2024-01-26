@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./components/Card";
+import Button from "./components/Button";
 
 function App() {
   return (
@@ -9,18 +10,14 @@ function App() {
       </header>
       <main className="app__main">
         <div className="cards">
-          <Card title="title 1" >
-            Contenu 1
+          <Card title="title 1">
+            Contenu 1<Button className="btn">bouton</Button>
           </Card>
           <Card title="title 2">
-              Contenu 2
+            Contenu 2<Button className="btn">bouton</Button>
           </Card>
-          <Card title="title 3">
-              Contenu 3
-          </Card>
-          <Card title="title 4">
-              Contenu 4
-          </Card>
+          <Card title="title 3">Contenu 3</Card>
+          <Card title="title 4">Contenu 4</Card>
         </div>
       </main>
       <footer className="app__footer footer">footer</footer>

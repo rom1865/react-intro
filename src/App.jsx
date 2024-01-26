@@ -1,4 +1,6 @@
 import React from "react";
+import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card";
 import Button from "./components/Button";
 
@@ -11,10 +13,16 @@ function App() {
       <main className="app__main">
         <div className="cards">
           <Card title="title 1">
-            Contenu 1<Button className="btn">bouton</Button>
+            Contenu 1
+            <Button className="btn">
+              <FontAwesomeIcon icon={faHeart} />
+            </Button>
           </Card>
           <Card title="title 2">
-            Contenu 2<Button className="btn">bouton</Button>
+            Contenu 2
+            <Button className="btn">
+              <FontAwesomeIcon icon={faStar} />
+            </Button>
           </Card>
           <Card title="title 3">Contenu 3</Card>
           <Card title="title 4">Contenu 4</Card>

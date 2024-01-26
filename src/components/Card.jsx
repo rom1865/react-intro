@@ -1,5 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
+// eslint-disable-next-line react/require-default-props
 function Card(props) {
   const { title } = props;
   return (
@@ -9,5 +11,13 @@ function Card(props) {
     </article>
   );
 }
+
+Card.propTypes = {
+  title: PropTypes.string,
+};
+
+Card.defaultProps = {
+  title: "title",
+};
 
 export default Card;

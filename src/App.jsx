@@ -5,9 +5,9 @@ import Card from "./components/Card";
 import Button from "./components/Button";
 
 function App() {
-    const clickHandler = () => {
-        console.log("Une fonction nommée !");
-    }
+  const clickHandler = () => {
+    console.log("Une fonction nommée !");
+  };
   return (
     <div className="app">
       <header className="app__header header">
@@ -15,15 +15,15 @@ function App() {
       </header>
       <main className="app__main">
         <div className="cards">
-          <Card title="title 1" onClick={() => console.log("Une fonction anonyme !")}>
+          <Card title="title 1">
             <div>Contenu 1</div>
-            <Button>
+            <Button onClick={() => console.log("Une fonction anonyme !")}>
               <FontAwesomeIcon icon={faHeart} />
             </Button>
           </Card>
-          <Card title="title 2" onClick={clickHandler}>
+          <Card title="title 2">
             <div>Contenu 2</div>
-            <Button>
+            <Button onClick={clickHandler}>
               <FontAwesomeIcon icon={faStar} />
             </Button>
           </Card>

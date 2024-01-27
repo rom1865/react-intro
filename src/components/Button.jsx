@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 // eslint-disable-next-line react/require-default-props
 function Button(props) {
-  const { className, children, onClick } = props;
+  const { className, onClick, children } = props;
   const c = `btn ${className}`;
   return (
-    <button type="button" className={c}>
+    <button type="button" className={c} onClick={onClick}>
       {children}
     </button>
   );
@@ -15,6 +15,7 @@ function Button(props) {
 Button.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {

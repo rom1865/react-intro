@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card";
 import Button from "./components/Button";
 
 function App() {
+  const [cpt1, setCpt1] = useState(0);
+  const [cpt2, setCpt2] = useState(0);
+
   const clickHandler = () => {
-    console.log("Une fonction nommée !");
+    setCpt1(cpt1 + 1);
+    console.log(`Valeur du premier bouton : ${cpt1}`);
   };
   return (
     <div className="app">
@@ -16,14 +20,19 @@ function App() {
       <main className="app__main">
         <div className="cards">
           <Card title="title 1">
-            <div>Contenu 1</div>
-            <Button onClick={() => console.log("Une fonction anonyme !")}>
+            <div>Contenu 1 avec compteur : {cpt1}</div>
+            <Button onClick={clickHandler}>
               <FontAwesomeIcon icon={faHeart} />
             </Button>
           </Card>
           <Card title="title 2">
-            <div>Contenu 2</div>
-            <Button onClick={clickHandler}>
+            <div>Contenu 2 avec compteur : {cpt2}</div>
+            <Button
+              onClick={() => {
+                setCpt2(cpt2 + 1);
+                console.log(`Valeur du deuxième bouton : ${cpt2}`);
+              }}
+            >
               <FontAwesomeIcon icon={faStar} />
             </Button>
           </Card>

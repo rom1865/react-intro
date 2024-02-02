@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { faHeart, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card";
@@ -6,6 +6,13 @@ import Card from "./components/Card";
 import Counter from "./components/Counter";
 
 function App() {
+  const [counts, setCounts] = useState(
+    {
+      heart: 0,
+      star: 0,
+    }
+  );
+
   return (
     <div className="app">
       <header className="app__header header">
@@ -15,17 +22,21 @@ function App() {
         <div className="cards">
           <Card title="title 1">
             <div>Contenu 1</div>
-            <Counter>
-              <FontAwesomeIcon icon={faHeart} />
+            <Counter
+                before={<FontAwesomeIcon icon={faHeart} />}
+                after={<FontAwesomeIcon icon={faHeart} />}
+                onChange={heart => setCounts ({...counts , heart})}>
             </Counter>
           </Card>
           <Card title="title 2">
             <div>Contenu 2</div>
-            <Counter>
-              <FontAwesomeIcon icon={faStar} />
+            <Counter
+                before={<FontAwesomeIcon icon={faStar} />}
+                after={<FontAwesomeIcon icon={faStar} />}
+                onChange={star => setCounts ({...counts , star})}>
             </Counter>
           </Card>
-          <Card title="title 3">Contenu 3</Card>
+          <Card title="title 3">Total des 2 compteurs : {counts.heart + counts.star}</Card>
           <Card title="title 4">Contenu 4</Card>
         </div>
       </main>

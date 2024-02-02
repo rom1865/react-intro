@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 // eslint-disable-next-line react/require-default-props
 function Card(props) {
   // eslint-disable-next-line react/prop-types
-  const { title, children } = props;
+  const { title, children, className } = props;
+
+    const c = `card ${className}`;
   return (
-    <article className="card">
+    <article className={c}>
       <header className="card__header header__title">{title}</header>
       <section className="card__main">{children}</section>
     </article>

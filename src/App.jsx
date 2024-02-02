@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Card from "./components/Card";
 // import Button from "./components/Button";
 import Counter from "./components/Counter";
+import FoldableCard from "./components/FoldableCard.jsx";
 
 function App() {
   const [counts, setCounts] = useState(
@@ -20,24 +21,24 @@ function App() {
       </header>
       <main className="app__main">
         <div className="cards">
-          <Card title="title 1">
+          <FoldableCard title="title 1">
             <div>Contenu 1</div>
             <Counter
                 before={<FontAwesomeIcon icon={faHeart} />}
                 after={<FontAwesomeIcon icon={faHeart} />}
                 onChange={heart => setCounts ({...counts , heart})}>
             </Counter>
-          </Card>
-          <Card title="title 2">
+          </FoldableCard>
+          <FoldableCard title="title 2">
             <div>Contenu 2</div>
             <Counter
                 before={<FontAwesomeIcon icon={faStar} />}
                 after={<FontAwesomeIcon icon={faStar} />}
                 onChange={star => setCounts ({...counts , star})}>
             </Counter>
-          </Card>
-          <Card title="title 3">Total des 2 compteurs : {counts.heart + counts.star}</Card>
-          <Card title="title 4">Contenu 4</Card>
+          </FoldableCard>
+          <FoldableCard title="title 3">Total des 2 compteurs : {counts.heart + counts.star}</FoldableCard>
+          <FoldableCard title="title 4">Contenu 4</FoldableCard>
         </div>
       </main>
       <footer className="app__footer footer">footer</footer>

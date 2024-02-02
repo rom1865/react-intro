@@ -21,7 +21,7 @@ function App() {
       </header>
       <main className="app__main">
         <div className="cards">
-          <FoldableCard title="title 1">
+          <FoldableCard title="title 1" opened={true}>
             <div>Contenu 1</div>
             <Counter
                 before={<FontAwesomeIcon icon={faHeart} />}

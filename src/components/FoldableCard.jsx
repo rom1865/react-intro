@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import Card from "./Card.jsx";
 import {faCirclePlus, faCircleMinus} from "@fortawesome/free-solid-svg-icons";
@@ -9,16 +9,24 @@ function FoldableCard(props) {
     // eslint-disable-next-line react/prop-types
     const { opened, title, children } = props;
 
-    const c = `foldable ${opened ? "shown" : ""}`;
-    const icon = opened ?
+    const [isShown, setIsShown] = useState(opened)
+
+    const c = `foldable ${isShown ? "shown" : ""}`;
+    const icon = isShown ?
         <FontAwesomeIcon icon={faCircleMinus} /> :
         <FontAwesomeIcon icon={faCirclePlus} />
+
+    const clickHandler = () => {
+        setIsShown(!isShown);
+        console.log("click")
+    }
 
     return (
         <Card title={<div>{title}
             <div className="foldable-icon">{icon}</div>
-        </div>} className={c}>
-            {opened ? children : null}
+        </div>} className={c}
+        onClick={clickHandler}>
+            {isShown ? children : null}
         </Card>
     );
 }

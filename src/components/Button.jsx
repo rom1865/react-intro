@@ -5,8 +5,17 @@ import PropTypes from "prop-types";
 function Button(props) {
   const { className, onClick, children } = props;
   const c = `btn ${className}`;
+
+  const handleClick = (event) => {
+    event.stopPropagation();
+
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <button type="button" className={c} onClick={onClick}>
+    <button type="button" className={c} onClick={handleClick}>
       {children}
     </button>
   );

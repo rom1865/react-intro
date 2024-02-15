@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import Button from "./Button.jsx";
 
-function Counter({ before, after, className, onChange }) {
-  const [cpt, setCpt] = useState(0);
+function Counter({ before, after, className, onChange, initial }) {
+  const [cpt, setCpt] = useState(initial);
 
   const c = `btn ${className}`;
   const clickHandler = () => {
@@ -11,15 +12,15 @@ function Counter({ before, after, className, onChange }) {
   };
 
   useEffect(() => {
-    if(onChange !== null) {
+    if (onChange !== null) {
       onChange(cpt);
     }
   }, [cpt]);
 
   return (
-    <button type="button" className={c} onClick={clickHandler}>
+    <Button className={c} onClick={clickHandler}>
       {before} {cpt} {after}
-    </button>
+    </Button>
   );
 }
 
@@ -27,12 +28,14 @@ Counter.propTypes = {
   before: PropTypes.node,
   after: PropTypes.node,
   className: PropTypes.string,
+  initial: PropTypes.number,
 };
 
 Counter.defaultProps = {
   before: null,
   after: null,
   className: "",
+  initial: 0,
 };
 
 export default Counter;

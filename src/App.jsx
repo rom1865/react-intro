@@ -5,6 +5,7 @@ import Card from "./components/Card";
 // import Button from "./components/Button";
 import Counter from "./components/Counter";
 import FoldableCard from "./components/FoldableCard.jsx";
+import Cards from "./components/Cards.jsx";
 
 function App() {
   const [counts, setCounts] = useState({
@@ -18,7 +19,7 @@ function App() {
         <h1 className="header__title">Introduction to React</h1>
       </header>
       <main className="app__main">
-        <div className="cards">
+        <Cards>
           <FoldableCard title="title 1">
             <div>Contenu 1</div>
             <Counter
@@ -41,7 +42,7 @@ function App() {
             Total des 2 compteurs : {counts.heart + counts.star}
           </FoldableCard>
           <FoldableCard title="title 4">Contenu 4</FoldableCard>
-        </div>
+        </Cards>
       </main>
       <footer className="app__footer footer">footer</footer>
     </div>
